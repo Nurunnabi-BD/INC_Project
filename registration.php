@@ -23,7 +23,7 @@
         </div>
         <div class="container">
             <div class="form">
-                <form action="registration.php" class="from-table" method="POST">
+                <form action="connect.php" class="from-table" method="POST">
                     <div class="form-name">
                         <div class="first-name uni">
                             <label for="">First Name <span style="color: red;">*</span></label>
@@ -51,7 +51,7 @@
                         </div>
                         <div class="last-pass uni">
                             <label for="">Re-Type Password<span style="color: red;">*</span></label>
-                            <input type="password"placeholder="Re-type your password " name="re-password" required>
+                            <input type="password"placeholder="Re-type your password " name="re_password" required>
                         </div>
                     </div>
                     <div class="address uni">
@@ -81,17 +81,17 @@
                             <label for="">Country<span style="color: red;">*</span></label>
                             <select name="country" id="" required>
                                 <option value="" selected hidden>Country</option>
-                                <option value="">Bangladesh</option>
-                                <option value="">India</option>
-                                <option value="">Pakistan</option>
+                                <option value="Bangladesh">Bangladesh</option>
+                                <option value="India">India</option>
+                                <option value="Pakistan">Pakistan</option>
                             </select>
                         </div>
                         <div class="form-region dropdown uni">
                             <label for="">Region State</label>
                             <select name="region" id="">
                                 <option value="" selected hidden>Region</option>
-                                <option value="">Bandarban</option>
-                                <option value="">Cox's Bazar</option>
+                                <option value="Bandarban">Bandarban</option>
+                                <option value="Cox's Bazar">Cox's Bazar</option>
                             </select>
                         </div>
                             
@@ -101,8 +101,8 @@
                             <p>Have an account?</p>
                             <a href="login.php">Login</a>
                         </div>
-                        <div class="reg-submit" name="reg-submit">
-                            <button>Submit</button>
+                        <div class="reg-submit" >
+                            <button name="reg_submit">Submit</button>
                         </div>
                     </div>
                 </form>

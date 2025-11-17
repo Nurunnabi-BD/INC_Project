@@ -24,14 +24,14 @@
         <div class="container">
             <div class="form login-form">
                 <div>
-                    <form action="">
+                    <form action="login_process.php" method="POST">
                         <div class="login-mail">
                             <label for="">Email Address <span style="color: red;">*</span></label>
-                            <input type="text" placeholder="Enter your email" required>
+                            <input type="email" placeholder="Enter your email" name="email" required>
                         </div>
                         <div class="login-pass">
                             <label for="">Password      <span style="color: red;">*</span></label>
-                            <input  type="password" placeholder="Enter your password" required>
+                            <input  type="password" placeholder="Enter your password" name="password" required>
                         </div>
                         <div class="remember-forget">
                             <div class="remember">
@@ -44,7 +44,7 @@
                         </div>
                         <div class="create-login">
                             <a href="registration.php">Create Account?</a>
-                            <button>Login</button>
+                            <button type="submit" name="login_submit">Login</button>
                         </div>
                     </form>
                 </div>
