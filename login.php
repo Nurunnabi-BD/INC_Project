@@ -1,3 +1,4 @@
+ <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +24,23 @@
         </div>
         <div class="container">
             <div class="form login-form">
+                <div class="display">
+
+                </div>
                 <div>
+
+                    <?php
+                    if(isset($_SESSION['login_success'])){
+                        echo "<div style='color:green; font-weight:bold;'>".$_SESSION['login_success']."</div>";
+                        unset($_SESSION['login_success']); // একবার show হওয়ার পর remove
+                    }
+
+                    if(isset($_SESSION['login_error'])){
+                        echo "<div style='color:red; font-weight:bold;'>".$_SESSION['login_error']."</div>";
+                        unset($_SESSION['login_error']);
+                    }
+                    ?>
+
                     <form action="login_process.php" method="POST">
                         <div class="login-mail">
                             <label for="">Email Address <span style="color: red;">*</span></label>

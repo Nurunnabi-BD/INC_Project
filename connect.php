@@ -1,4 +1,5 @@
 <?php
+session_start();
 $server="localhost";
 $username="root";
 $password="";
@@ -9,8 +10,6 @@ $con = new mysqli($server, $username, $password, $dbname);
 if($con->connect_error){
     die("Connection failed: " . $con->connect_error);
 } 
-echo "Connect Success.";
-
 if(isset($_POST["reg_submit"])){
 
     $firstname = $con->real_escape_string($_POST["firstname"]);
@@ -29,7 +28,8 @@ if(isset($_POST["reg_submit"])){
 
     // Password match check
     if($password !== $re_password){
-        echo "Password does not match!";
+        $_SESSION['not_match'] = "Password does not match!";
+        header("Location: registration.php");
         exit();
     }
 
@@ -38,7 +38,9 @@ if(isset($_POST["reg_submit"])){
     $result = $con->query($checkmail);
 
     if($result->num_rows > 0){
-        echo "Email already has an account";
+        $_SESSION['already_account'] = "Email already has an account!!!";
+        header("Location: registration.php");
+        exit();
     } 
     else {
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
@@ -49,9 +51,13 @@ if(isset($_POST["reg_submit"])){
         ('$fullname', '$email', '$hashed_password', '$address', '$city', '$post', '$country', '$region', '$phone')";
 
         if($con->query($sql) === TRUE){
-            echo "Insert successfully";
+            $_SESSION['regi_success'] = "Registration successfully.";
+            header("Location: registration.php");
+            exit();
         } else {
-            echo "Fail to insert: " . $con->error;
+            $_SESSION['regi_fail'] = "Registration fail!!";
+            header("Location: registration.php"). $con->error;
+            exit();
         }
     }
 }

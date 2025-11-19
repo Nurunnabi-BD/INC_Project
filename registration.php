@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +24,25 @@
         </div>
         <div class="container">
             <div class="form">
+                    <?php
+                        if(isset($_SESSION['regi_success'])){
+                            echo "<div style='color:green; font-weight:bold;'>".$_SESSION['regi_success']."</div>";
+                            unset($_SESSION['regi_success']); // একবার show হওয়ার পর remove
+                        }
+
+                        if(isset($_SESSION['not_match'])){
+                            echo "<div style='color:red; font-weight:bold;'>".$_SESSION['not_match']."</div>";
+                            unset($_SESSION['not_match']);
+                        }
+                        if(isset($_SESSION['already_account'])){
+                            echo "<div style='color:red; font-weight:bold;'>".$_SESSION['already_account']."</div>";
+                            unset($_SESSION['already_account']);
+                        }
+                        if(isset($_SESSION['regi_fail'])){
+                            echo "<div style='color:red; font-weight:bold;'>".$_SESSION['regi_fail']."</div>";
+                            unset($_SESSION['regi_fail']);
+                        }
+                    ?>
                 <form action="connect.php" class="from-table" method="POST">
                     <div class="form-name">
                         <div class="first-name uni">

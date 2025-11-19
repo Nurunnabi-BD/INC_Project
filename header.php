@@ -10,7 +10,7 @@
 <body>
     <header class= "nav-bar" >
         <div class="logo-img">
-            <a href="">
+            <a href="index.php">
                 <img src="asstes/image/logo.png" alt="logo">
                 <h1 class="logo-text">Friends Creation BD</h1>
             </a>
